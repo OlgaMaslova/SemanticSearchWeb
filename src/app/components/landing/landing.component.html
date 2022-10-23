@@ -1,0 +1,18 @@
+<div class="main-container">
+    <div class="wrapper-main-container">
+        <h2>{{'welcome' | translate }}</h2>
+        <div class="step">
+            <h4>{{'steps.step1' | translate}}.</h4>
+            <app-load-vocabulary></app-load-vocabulary>
+        </div>
+        <div class="step">
+            <h4>{{'steps.step2' | translate}}.</h4>
+            <app-embeddings></app-embeddings>
+        </div>
+        <div class="step">
+            <h4>{{'steps.step3' | translate}}.</h4>
+            <app-query></app-query>
+        </div>
+        <button (click)="onReset()">{{'Reset' | translate}}</button>
+    </div>
+</div>

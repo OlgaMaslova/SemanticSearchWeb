@@ -1,0 +1,7 @@
+<div *ngIf="form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <textarea formControlName="text"></textarea>
+        <button type="submit">{{'Upload' | translate}}</button>
+    </form>
+    <div class="success-div" *ngIf="success">{{success}} !</div>
+</div>

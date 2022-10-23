@@ -1,0 +1,42 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "airbnb",
+        "plugin:prettier/recommended",
+        "prettier",
+        "plugin:import/typescript"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "prettier",
+        "@typescript-eslint"
+    ],
+    "settings": {
+        "import/resolver": {
+            "typescript": {}
+        }
+    },
+    "rules": {
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": "error",
+        "import/extensions": "off",
+        "import/prefer-default-export": "off",
+        "no-useless-constructor": "off",
+        "func-names": [
+            "error",
+            "as-needed"
+        ],
+        "no-console": "off",
+        "no-restricted-syntax": "off",
+        "import/no-unresolved": "error",
+        "no-empty-function": "off"
+    }
+  }
+  

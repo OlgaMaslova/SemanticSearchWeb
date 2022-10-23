@@ -1,0 +1,12 @@
+<div>
+    <div class="loader">
+        <ngx-spinner [fullScreen]="false" bdColor="rgba(255,255,255,0.8)" size="medium" color="#213980" type="ball-scale-multiple"></ngx-spinner>
+    </div>
+    <button (click)="getEmbeddings()">{{'get-embeddings' | translate}}</button>
+    <div *ngIf="embeddings">
+        <textarea>{{embeddings}}</textarea>
+    </div>
+    <div class="error-div" *ngIf="error">
+        {{error}}
+    </div>
+</div>

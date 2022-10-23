@@ -1,0 +1,17 @@
+<div *ngIf="form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <textarea formControlName="query"></textarea>
+        <button type="submit">{{'Run semantic search' | translate}}</button>
+    </form>
+    <div class="loader">
+        <ngx-spinner [fullScreen]="false" bdColor="rgba(255,255,255,0.8)" size="medium" color="#213980" type="ball-scale-multiple"></ngx-spinner>
+    </div>
+    <div class="success-div" *ngIf="semanticResult">
+        <p>{{'query.sentence' | translate}} :</p>
+        <p style="font-style: italic;">{{semanticResult.top_answer}}</p>
+        <p>{{'query.score' | translate}} : {{semanticResult.score | roundScore}}</p>
+    </div>
+    <div class="error-div" *ngIf="error">
+        {{error | translate}}
+    </div>
+</div>

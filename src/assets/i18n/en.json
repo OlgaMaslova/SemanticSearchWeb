@@ -1,0 +1,16 @@
+{
+    "steps": {
+        "step1":  "First, upload your text",
+        "step2": "Check generated embeddings for sentences",
+        "step3": "Run semantic query of your sentence"
+    },
+    "welcome": "Welcome to Sematic Search App",
+    "get-embeddings": "Get Embeddings",
+    "Run semantic query": "Run semantic query",
+    "Reset": "Reset",
+    "query": {
+        "sentence": "The most similar sentence to the query",
+        "score": "Score",
+        "error": "Wrong input (not empty, must contain letters or numbers)"
+    }
+}

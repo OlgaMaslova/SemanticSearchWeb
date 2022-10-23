@@ -1,0 +1,23 @@
+.main-container {
+    position: absolute;
+    width: 60%;
+    left: 20%;
+    top:0;
+    background-color: #c7d7f2;
+
+    .wrapper-main-container {
+        height: 100%;
+        padding: 2rem 4rem;
+
+        h2 {
+            text-align: center;
+        }
+
+        .step {
+            padding: none;
+            font-size: 18px;
+            line-height: 22px;
+            margin: 1rem 0rem;
+        }
+    }
+}
