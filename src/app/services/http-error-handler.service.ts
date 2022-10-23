@@ -38,7 +38,9 @@ export class HttpErrorHandlerService {
                 error.error instanceof Error
                     ? error.error.message
                     : `server returned code ${error.status} with body "${error.error.message}"`;
-
+            if (error.status === 0) {
+                alert('Server is not running ?');
+            }
             // TODO: send the error to logging service
             console.error(`${serviceName}: ${operation} failed: ${message}`);
             // Let the app keep running by returning a safe result.

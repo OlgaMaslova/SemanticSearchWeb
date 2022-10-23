@@ -40,7 +40,6 @@ export class ApiHttpService {
      * @returns Observable<Message>
      */
     postVocabulary(vocabulary: Vocabulary): Observable<Message> {
-        console.log(vocabulary);
         return this.http
             .post<Message>(
                 `upload-vocabulary`,
