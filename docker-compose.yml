@@ -3,4 +3,4 @@ services:
   angular-docker:
     build: .
     ports:
-      - '9000:80'
+      - '4200:80'

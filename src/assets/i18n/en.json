@@ -5,12 +5,17 @@
         "step3": "Run semantic query of your sentence"
     },
     "welcome": "Welcome to Sematic Search App",
+    "upload-success": "Uploaded successfully",
     "get-embeddings": "Get Embeddings",
     "Run semantic query": "Run semantic query",
     "Reset": "Reset",
     "query": {
         "sentence": "The most similar sentence to the query",
         "score": "Score",
-        "error": "Wrong input (not empty, must contain letters or numbers)"
+        "error": "Wrong input (not empty, must contain letters or numbers)",
+        "error-no-vocab": "Upload your text first"
+    },
+    "form-errors": {
+        "required": "This field can not be empty"
     }
 }

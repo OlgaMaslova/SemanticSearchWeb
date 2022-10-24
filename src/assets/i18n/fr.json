@@ -5,12 +5,17 @@
         "step3": "Executer la recherche sémantique"
     },
     "welcome": "Bienvenue à Sematic Search App",
+    "upload-success": "Téléchargé avec succès",
     "get-embeddings": "Recevoir Embeddings",
     "Run semantic query": "Executer la recherche sémantique",
     "Reset": "Réinitialiser",
     "query": {
         "sentence": "La phrase la plus proche de votre requete est",
         "score": "Score",
-        "error": "Mauvais input (ne doit pas être vide, doit contenir des chiffres et/ou des lettres"
+        "error": "Mauvais input (ne doit pas être vide, doit contenir des chiffres et/ou des lettres",
+        "error-no-vocab": "Téléverser votre texte d'abord"
+    },
+    "form-errors": {
+        "required": "Ce champ est obligatoire"
     }
 }

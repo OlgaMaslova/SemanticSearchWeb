@@ -1,6 +1,12 @@
 <div *ngIf="form">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <textarea formControlName="query"></textarea>
+        <div *ngIf="form.controls['query'].invalid && (form.controls['query'].dirty || form.controls['query'].touched)" class="alert alert-danger form-danger" role="alert">
+
+            <div class="invalid" *ngIf="form.controls['query'].errors?.['required']">
+                {{'form-errors.required' | translate}}
+            </div>
+        </div>
         <button type="submit">{{'Run semantic search' | translate}}</button>
     </form>
     <div class="loader">
@@ -12,6 +18,6 @@
         <p>{{'query.score' | translate}} : {{semanticResult.score | roundScore}}</p>
     </div>
     <div class="error-div" *ngIf="error">
-        {{error | translate}}
+        {{error | translate}} !
     </div>
 </div>

@@ -37,6 +37,7 @@ export class EmbeddingsComponent implements OnInit {
     }
 
     getEmbeddings() {
+        this.error = null;
         this.spinnerService.show();
         this.apiService.getEmbeddings().subscribe((res) => {
             if (res.length === 0) {

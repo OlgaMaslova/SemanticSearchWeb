@@ -60,6 +60,10 @@ export class QueryComponent implements OnInit {
         this.error = null;
         this.semanticResult = null;
         const input = this.form.value.query;
+        if (!this.apiService.vocabularyID) {
+            this.error = 'query.error-no-vocab';
+            return;
+        }
         this.spinnerService.show();
         this.apiService.getSemanticResult(input).subscribe((res) => {
             if (res.top_answer !== '') {

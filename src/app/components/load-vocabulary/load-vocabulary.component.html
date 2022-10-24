@@ -1,7 +1,13 @@
 <div *ngIf="form">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <textarea formControlName="text"></textarea>
+        <div *ngIf="form.controls['text'].invalid && (form.controls['text'].dirty || form.controls['text'].touched)" class="alert alert-danger form-danger" role="alert">
+
+            <div class="invalid" *ngIf="form.controls['text'].errors?.['required']">
+                {{'form-errors.required' | translate}}
+            </div>
+        </div>
         <button type="submit">{{'Upload' | translate}}</button>
     </form>
-    <div class="success-div" *ngIf="success">{{success}} !</div>
+    <div class="success-div" *ngIf="success">{{'upload-success' | translate}} !</div>
 </div>

@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, Subject } from 'rxjs';
@@ -23,6 +24,16 @@ const httpOptions = {
     providedIn: 'root'
 })
 export class ApiHttpService {
+    private _vocabularyID: string | null;
+
+    public get vocabularyID(): string | null {
+        return this._vocabularyID;
+    }
+
+    public set vocabularyID(value: string | null) {
+        this._vocabularyID = value;
+    }
+
     private handleError: HandleError;
 
     resetEvent = new Subject<boolean>();
@@ -37,19 +48,17 @@ export class ApiHttpService {
     /**
      * Send post request with the vocabulary text
      * @param vocabulary : Vocabulary
-     * @returns Observable<Message>
+     * @returns Observable<{}>
      */
-    postVocabulary(vocabulary: Vocabulary): Observable<Message> {
+    postVocabulary(vocabulary: Vocabulary): Observable<{ id: string }> {
         return this.http
-            .post<Message>(
+            .post<{ id: string }>(
                 `upload-vocabulary`,
                 JSON.stringify(vocabulary),
                 httpOptions
             )
             .pipe(
-                catchError(
-                    this.handleError('upload vocabulary', { message: '' })
-                )
+                catchError(this.handleError('upload vocabulary', { id: '' }))
             );
     }
 
@@ -59,7 +68,7 @@ export class ApiHttpService {
      * @returns Observable<SemanticResult>
      */
     getSemanticResult(query: string): Observable<SemanticResult> {
-        httpOptions.params = { query };
+        httpOptions.params = { query, vocabulary_id: this.vocabularyID };
         return this.http.post<SemanticResult>(`query`, {}, httpOptions).pipe(
             catchError(
                 this.handleError('run semantic query', {
@@ -75,6 +84,7 @@ export class ApiHttpService {
      * @returns Observable<Embedding[]>
      */
     getEmbeddings(): Observable<Embedding[]> {
+        httpOptions.params = { vocabulary_id: this.vocabularyID };
         return this.http
             .get<Embedding[]>(`embeddings`, httpOptions)
             .pipe(catchError(this.handleError('get embeddings', [])));
@@ -85,6 +95,7 @@ export class ApiHttpService {
      * @returns Observable<Message>
      */
     reset(): Observable<Message> {
+        httpOptions.params = { vocabulary_id: this.vocabularyID };
         return this.http
             .get<Message>(`reset`, httpOptions)
             .pipe(catchError(this.handleError('reset data', { message: '' })));

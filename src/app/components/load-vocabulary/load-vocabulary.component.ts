@@ -13,7 +13,7 @@ import { ApiHttpService } from 'src/app/services/api-http-service.service';
 export class LoadVocabularyComponent implements OnInit {
     form: FormGroup;
 
-    success: string | null;
+    success: boolean;
 
     destroy$ = new Subject();
 
@@ -23,7 +23,8 @@ export class LoadVocabularyComponent implements OnInit {
             .subscribe((val) => {
                 if (val) {
                     this.form.reset();
-                    this.success = null;
+                    this.success = false;
+                    this.apiService.vocabularyID = null;
                 }
             });
     }
@@ -53,6 +54,12 @@ export class LoadVocabularyComponent implements OnInit {
         const input = this.form.value.text;
         this.apiService
             .postVocabulary({ text: input } as Vocabulary)
-            .subscribe((res) => (this.success = res.message));
+            .subscribe((res) => {
+                if (res.id.length !== 0) {
+                    // set vocabulary id
+                    this.apiService.vocabularyID = res.id;
+                    this.success = true;
+                }
+            });
     }
 }
