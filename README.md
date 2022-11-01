@@ -12,7 +12,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Run in Docker
 
-Run `docker-compose up --build`. Your app is running at `http://localhost:9000/`.
+Run `docker-compose up --build`. Your app is running at `http://localhost:4200/`.
 
 ## Further help
 

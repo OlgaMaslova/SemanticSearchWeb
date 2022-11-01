@@ -4,7 +4,7 @@
         "step2": "Check generated embeddings for sentences",
         "step3": "Run semantic query of your sentence"
     },
-    "welcome": "Welcome to Sematic Search App",
+    "welcome": "Welcome to Semantic Search App",
     "upload-success": "Uploaded successfully",
     "get-embeddings": "Get Embeddings",
     "Run semantic query": "Run semantic query",

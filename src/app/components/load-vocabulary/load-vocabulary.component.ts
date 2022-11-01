@@ -1,3 +1,4 @@
+/* eslint-disable dot-notation */
 /* eslint-disable no-return-assign */
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -16,6 +17,8 @@ export class LoadVocabularyComponent implements OnInit {
     success: boolean;
 
     destroy$ = new Subject();
+
+    submitted = false;
 
     constructor(private fb: FormBuilder, private apiService: ApiHttpService) {
         this.apiService.resetEvent
@@ -48,6 +51,7 @@ export class LoadVocabularyComponent implements OnInit {
     }
 
     onSubmit() {
+        this.submitted = true;
         if (!this.form.valid) {
             return;
         }
